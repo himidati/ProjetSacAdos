@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
+iostream
+-
+fstream
+-
+vector
+-
+algorithm
+-
+
+/home/etud/stage/ProjetSacAdos/src/KpSolverGreedy.cpp
+KpSolverGreedy.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolverGreedy.hpp
+
+/home/etud/stage/ProjetSacAdos/src/KpSolverGreedy.hpp
+KpSolver.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
+
