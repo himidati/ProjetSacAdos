@@ -16,11 +16,33 @@ vector
 algorithm
 -
 
-/home/etud/stage/ProjetSacAdos/src/KpSolverGreedy.cpp
-KpSolverGreedy.hpp
-/home/etud/stage/ProjetSacAdos/src/KpSolverGreedy.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolverDP.hpp
+KpSolver.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
 
 /home/etud/stage/ProjetSacAdos/src/KpSolverGreedy.hpp
 KpSolver.hpp
 /home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
+
+/home/etud/stage/ProjetSacAdos/src/KpSolverHeurDP.cpp
+KpSolverHeurDP.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolverHeurDP.hpp
+KpSolverDP.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolverDP.hpp
+
+/home/etud/stage/ProjetSacAdos/src/KpSolverHeurDP.hpp
+KpSolver.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
+
+/home/etud/stage/ProjetSacAdos/src/Test.cpp
+KpSolver.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
+chrono
+-
+KpSolverGreedy.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolverGreedy.hpp
+KpSolverDP.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolverDP.hpp
+KpSolverHeurDP.cpp
+/home/etud/stage/ProjetSacAdos/src/KpSolverHeurDP.cpp
 

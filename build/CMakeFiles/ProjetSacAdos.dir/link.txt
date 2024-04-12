@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.o CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.o -o ProjetSacAdos 
+/usr/bin/c++ CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.o CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.o CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.o CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o -o ProjetSacAdos 
