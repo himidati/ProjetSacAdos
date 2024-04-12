@@ -10,6 +10,8 @@
 
 using namespace std;
 
+using T=uint;
+
 class KpSolver {
 
 private:
