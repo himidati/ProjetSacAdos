@@ -82,7 +82,7 @@ void KpSolverHeurDP::solve() {
 	//cout << "knapsack neighborhood fixing weight " << fixedBound << endl;
 
 	// definir sous pb de sac a dos et resoudre
-	KpSolverDP kp(_filename);
+	TabDynDP kp(_filename);
 	kp.updateKpSolverDP(subWeights, subValues,  knapsackBound - fixedBound);
 	kp.solve();
 

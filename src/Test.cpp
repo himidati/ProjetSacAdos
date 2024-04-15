@@ -27,7 +27,7 @@ void testGreedy(std::string const & instanceFile, bool verboseMode){
 
 void testDP(std::string const &instanceFile, bool verboseMode)
 {
-    KpSolverDP kp(instanceFile);
+    TabDynDP kp(instanceFile);
 
     KpSolverHeurDP kpHeurDP(instanceFile);
     
@@ -72,7 +72,7 @@ int main(int argc, char** argv){
     if (argc < 4) verboseMode = false;
     const char* instanceFile = argv[1];
 
-    testGreedy(instanceFile, verboseMode);
+    //testGreedy(instanceFile, verboseMode);
     if(HeuristicMode){
         testDP(instanceFile, verboseMode);
     }
