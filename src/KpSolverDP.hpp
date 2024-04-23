@@ -37,7 +37,7 @@ public:
         switch(_type){
 
         case MatDPType::MatDPvectVect:
-            _matDP = std::make_unique<MatDPvectVect>(nbItems, knapsackBound);     // Knapsack bound
+            _matDP = std::make_unique<MatDPvectVect>(nbItems, knapsackBound);
                     break;
         case MatDPType::MatDPvect : 
             _matDP = std::make_unique<MatDPvect>(nbItems, knapsackBound);
@@ -64,7 +64,7 @@ public:
     KpSolverDPv0(std::string const & filename, bool verb = false,  MatDPType type = MatDPType::MatDPvect) 
         : KpSolverDP(filename, verb, type){};
 
-    virtual void solve() override;
+    void solve() override;
 };
 
 class  KpSolverDPv1 : public KpSolverDP {
@@ -72,7 +72,7 @@ public:
     KpSolverDPv1(std::string const & filename, bool verb = false,  MatDPType type = MatDPType::MatDPvect) 
         : KpSolverDP(filename, verb, type){};
 
-    virtual void solve() override;
+    void solve() override;
 };
 
 class  KpSolverDPv2 : public KpSolverDP {
@@ -80,6 +80,6 @@ public:
     KpSolverDPv2(std::string const & filename, bool verb = false,  MatDPType type = MatDPType::MatDPvect) 
         : KpSolverDP(filename, verb, type){};
 
-    virtual void solve() override;
+    void solve() override;
 };
 

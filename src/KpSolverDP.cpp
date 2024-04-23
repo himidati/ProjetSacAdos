@@ -7,9 +7,11 @@
 void KpSolverDP::backtrack(){
 	solution.resize(nbItems, false);
     int m = knapsackBound;
-    for (int i = nbItems-1; i >=1 ; i--){
-    	if (m < weights[i]) solution[i]=false;
-    	else if (_matDP->getElement(i,m) > values[i] + _matDP->getElement(i-1,m - weights[i])) solution[i]=false;
+    for (int i = nbItems; i >=1 ; i--){
+    	if (m < weights[i]) 
+			solution[i]=false;
+    	else if (_matDP->getElement(i-1,m) > values[i] + _matDP->getElement(i-1,m - weights[i])) 
+			solution[i]=false;
     	else {
     		solution[i]=true;
     		m = m-weights[i];
