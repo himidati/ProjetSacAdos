@@ -8,7 +8,7 @@ void testDP(std::string const &instanceFile, bool verboseMode)
     auto start = std::chrono::steady_clock::now();
     auto end = std::chrono::steady_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
-    KpSolverDPv0 kp(instanceFile,false,MatDPType::MatDPtab);
+    KpSolverDPv2 kp(instanceFile,false,MatDPType::MatDPtabTab);
     kp.printKnapsackInstance();
     cout << endl
          << "Dynamic Programming iterative version without parallelization  :" << endl

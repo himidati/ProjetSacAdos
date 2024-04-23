@@ -52,7 +52,18 @@ void KpSolverDPv1::solve(){
 }
 
 void KpSolverDPv2::solve(){
-	
+	for (int n = 1; n <= nbItems - 1; ++n)
+	{
+		for (int i = 1; i <= n; ++i)
+		{
+			T *rowPtr = (*_matDP)[i];
+			(*_matDP).computeLineDP(i, values[i], weights[i]);
+		}
+		costSolution = (*_matDP)[n][knapsackBound];
+	}
+	costSolution = (*_matDP)[nbItems - 1][knapsackBound];
+	upperBoundOPT=costSolution;
+	KpSolverDP::backtrack();
 }
 
 void KpSolverDP::printMatrixDP() {

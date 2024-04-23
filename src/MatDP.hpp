@@ -36,7 +36,7 @@ private:
 
 public:
     MatDPvectVect(uint nbRow, uint nbCol)
-        : MatDP(nbRow,nbCol), _matrixDP(nbRow, vector<T>(nbCol+1, 0)){}
+        : MatDP(nbRow,nbCol), _matrixDP(nbRow, vector<T>(nbCol, 0)){}
     ~MatDPvectVect() = default;
 
     T *operator[](int row) override { return _matrixDP[row].data(); }; //transforme le vecteur en pointeur

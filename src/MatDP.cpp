@@ -28,28 +28,29 @@ MatDPtab::~MatDPtab(){
     delete[] _matrixDP;
 }
 
-void MatDPtabTab::computeLineDP(uint row, T costItem, T weightItem){
-	for(uint i=0; i<row; i++){
-		
-	}
+void MatDPtabTab::computeLineDP(uint row, T costItem, T weightItem) {
+    for (uint m = 1; m <= nbColumns; ++m) {
+        _matrixDP[row][m] = _matrixDP[row-1][m];
+        if (m >= weightItem) {
+            _matrixDP[row][m] = max(_matrixDP[row-1][m], _matrixDP[row-1][m-weightItem] + costItem);
+        }
+    }
 }
 
-
 void MatDPvectVect::computeLineDP(uint row, T costItem, T weightItem){
-	for(uint i=0; i<row; i++){
-		
-	}
+	for (uint m = 1; m <= nbColumns; ++m) {
+        _matrixDP[row][m] = _matrixDP[row-1][m];
+        if (m >= weightItem) {
+            _matrixDP[row][m] = max(_matrixDP[row-1][m], _matrixDP[row-1][m-weightItem] + costItem);
+        }
+    }
 }
 
 void MatDPtab::computeLineDP(uint row, T costItem, T weightItem){
-	for(uint i=0; i<row; i++){
-		
-	}
+	
 }
 
 
 void MatDPvect::computeLineDP(uint row, T costItem, T weightItem){
-	for(uint i=0; i<row; i++){
-		
-	}
+	
 }
