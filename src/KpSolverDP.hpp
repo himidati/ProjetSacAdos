@@ -1,100 +1,85 @@
 //********* kpSolver.hpp *********
 
-#ifndef KPSOLVERDP_HPP
-#define KPSOLVERDP_HPP
+#pragma once
+#include"KpSolver.hpp"
+#include "MatDP.hpp"
+#include <memory>
 
-#include "KpSolver.hpp"
+enum class MatDPType { 
+    MatDPvectVect, 
+    MatDPvect, 
+    MatDPtabTab,
+    MatDPtab    
+};
 
-using T=uint;
+
 
 class  KpSolverDP : public KpSolver {
-protected:
-    //option pour appeler la memoisation
-    bool memoizedVersion;
-private:    
-    //option pour appeler le mode verbeux du solveur, et afficher la matrice de programmation dynamique
+
+protected:    
+
+    std::unique_ptr<MatDP> _matDP;
+    MatDPType _type;
     bool verboseMode;
-    bool parallelizedVersion;
-    //TODO: construction itérative de la matrice de prog dynamique
-    virtual void solveIter()=0;
-    //TODO: backtrack dans la matrice de prog dynamique pour récupérer une composition optimale du sac a dos, a ecrire dans le vector<bool> solution heritee de la classe mere
-    virtual void backtrack()=0;
+public:
+    virtual ~KpSolverDP(){};
 
-    // construction et destruction de la matrice de prog dynamique
-    virtual void createMatrixDP()=0;
-    virtual void deleteMatrixDP()=0;
-
-    //affichage de la matrice de prog dynamique
-    virtual void printMatrixDP()=0;
+    virtual void solve() =0;
 
     // construction de la première ligne de la matrice de prog dynamique (relative au premier objet)
-    virtual void fillFirstColumnDP()=0;
-    virtual T getValueAT(int i, int j)=0;
+    void backtrack();
 
-    void setMemoizedVersion(bool memoizedVersion);
-public:
-    KpSolverDP(std::string const & filename) : KpSolver(filename){}
-    void solve() override;
+    //affichage de la matrice de prog dynamique
+    void printMatrixDP(); 
 
-    void setVerboseMode(bool verbosemode);
-    void updateKpSolverDP(vector<int> & newWeights,	vector<int> & newValues, int newBound);
-    virtual void solveIterParallel()=0;
-    // update de la capacité du sac, des poids et values pour pouvoir utiliser la classe dans kpSolverHeurDP
-    //void update(int newNbItems, vector<int> newWeights, vector<int> newValues, int newBound);
+
+    KpSolverDP(std::string const & filename, bool verb = false,  MatDPType type = MatDPType::MatDPvect) : KpSolver(filename), verboseMode(verb) , _type(type){
+        switch(_type){
+
+        case MatDPType::MatDPvectVect:
+            _matDP = std::make_unique<MatDPvectVect>(nbItems, knapsackBound);     // Knapsack bound
+                    break;
+        case MatDPType::MatDPvect : 
+            _matDP = std::make_unique<MatDPvect>(nbItems, knapsackBound);
+            break;
+        case MatDPType::MatDPtabTab:
+            _matDP = std::make_unique<MatDPtabTab>(nbItems, knapsackBound);
+            break;
+        case MatDPType::MatDPtab :
+            _matDP= std::make_unique<MatDPtab>(nbItems, knapsackBound);
+            break;
+    }
+
+    };
+
 };
 
-class MatCarreDP : public KpSolverDP{
-private:
-    //matrice de programmation dynamique
-    vector<vector<T>> _matrixDP;
+
+//TODO: solve_v0 on utilise [][]
+//TODO: solve_v1 on utilise getElement et setElementusing T=uint;
+//TODO: solve_v2 on computeLineDP
+
+class  KpSolverDPv0 : public KpSolverDP {
 public:
-    MatCarreDP(std::string const & filename)
-        :KpSolverDP(filename){}
-    void solveIter()override ;
-    void backtrack() override;
-    void createMatrixDP()override ;
-    void deleteMatrixDP() override;
-    void printMatrixDP()override ;
-    void fillFirstColumnDP()override ;
-    void solveIterParallel()override ;
-    T getValueAT(int i, int j) override { return _matrixDP[i][j];}
+    KpSolverDPv0(std::string const & filename, bool verb = false,  MatDPType type = MatDPType::MatDPvect) 
+        : KpSolverDP(filename, verb, type){};
+
+    virtual void solve() override;
 };
 
-class TabDynDP : public KpSolverDP{
-private:
-    T** _matrixDP;
+class  KpSolverDPv1 : public KpSolverDP {
 public:
-    TabDynDP(std::string const & filename)
-        :KpSolverDP(filename){}
-    void solveIter()override ;
-    void backtrack() override;
-    void createMatrixDP()override ;
-    void deleteMatrixDP() override;
-    void printMatrixDP()override ;
-    void fillFirstColumnDP()override ;
-    void solveIterParallel()override ;
-    // construction itérative de la matrice de prog dynamique
-    int solveMemoized(int i , int m);
-    T getValueAT(int i, int j)override { return _matrixDP[i][j];}
+    KpSolverDPv1(std::string const & filename, bool verb = false,  MatDPType type = MatDPType::MatDPvect) 
+        : KpSolverDP(filename, verb, type){};
+
+    virtual void solve() override;
 };
 
-class ListAdjtDP : public KpSolverDP{
-private:
-   vector<T> _matrixDP;
+class  KpSolverDPv2 : public KpSolverDP {
 public:
-    ListAdjtDP(std::string const & filename)
-        :KpSolverDP(filename),_matrixDP(nbItems*(knapsackBound+1)) {}
-    void solveIter()override ;
-    void backtrack() override;
-    void createMatrixDP()override ;
-    void deleteMatrixDP() override;
-    void printMatrixDP()override ;
-    void fillFirstColumnDP()override ;
-    void solveIterParallel()override ;
-    T getValueAT(int i, int j)override { return _matrixDP[i*(knapsackBound+1)+j];}
-    void setValue(int i, int j, const T& value) { int index = i * knapsackBound + j;    _matrixDP[index] = value;
-}
-};
+    KpSolverDPv2(std::string const & filename, bool verb = false,  MatDPType type = MatDPType::MatDPvect) 
+        : KpSolverDP(filename, verb, type){};
 
-#endif
+    virtual void solve() override;
+};
 

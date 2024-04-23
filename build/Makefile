@@ -169,33 +169,6 @@ src/KpSolver.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.s
 .PHONY : src/KpSolver.cpp.s
 
-src/KpSolverBB.o: src/KpSolverBB.cpp.o
-
-.PHONY : src/KpSolverBB.o
-
-# target to build an object file
-src/KpSolverBB.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.o
-.PHONY : src/KpSolverBB.cpp.o
-
-src/KpSolverBB.i: src/KpSolverBB.cpp.i
-
-.PHONY : src/KpSolverBB.i
-
-# target to preprocess a source file
-src/KpSolverBB.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.i
-.PHONY : src/KpSolverBB.cpp.i
-
-src/KpSolverBB.s: src/KpSolverBB.cpp.s
-
-.PHONY : src/KpSolverBB.s
-
-# target to generate assembly for a file
-src/KpSolverBB.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.s
-.PHONY : src/KpSolverBB.cpp.s
-
 src/KpSolverDP.o: src/KpSolverDP.cpp.o
 
 .PHONY : src/KpSolverDP.o
@@ -223,32 +196,32 @@ src/KpSolverDP.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.s
 .PHONY : src/KpSolverDP.cpp.s
 
-src/KpSolverGreedy.o: src/KpSolverGreedy.cpp.o
+src/MatDP.o: src/MatDP.cpp.o
 
-.PHONY : src/KpSolverGreedy.o
+.PHONY : src/MatDP.o
 
 # target to build an object file
-src/KpSolverGreedy.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.o
-.PHONY : src/KpSolverGreedy.cpp.o
+src/MatDP.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o
+.PHONY : src/MatDP.cpp.o
 
-src/KpSolverGreedy.i: src/KpSolverGreedy.cpp.i
+src/MatDP.i: src/MatDP.cpp.i
 
-.PHONY : src/KpSolverGreedy.i
+.PHONY : src/MatDP.i
 
 # target to preprocess a source file
-src/KpSolverGreedy.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.i
-.PHONY : src/KpSolverGreedy.cpp.i
+src/MatDP.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.i
+.PHONY : src/MatDP.cpp.i
 
-src/KpSolverGreedy.s: src/KpSolverGreedy.cpp.s
+src/MatDP.s: src/MatDP.cpp.s
 
-.PHONY : src/KpSolverGreedy.s
+.PHONY : src/MatDP.s
 
 # target to generate assembly for a file
-src/KpSolverGreedy.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.s
-.PHONY : src/KpSolverGreedy.cpp.s
+src/MatDP.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.s
+.PHONY : src/MatDP.cpp.s
 
 src/Test.o: src/Test.cpp.o
 
@@ -277,33 +250,6 @@ src/Test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.s
 .PHONY : src/Test.cpp.s
 
-src/nodeBB.o: src/nodeBB.cpp.o
-
-.PHONY : src/nodeBB.o
-
-# target to build an object file
-src/nodeBB.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o
-.PHONY : src/nodeBB.cpp.o
-
-src/nodeBB.i: src/nodeBB.cpp.i
-
-.PHONY : src/nodeBB.i
-
-# target to preprocess a source file
-src/nodeBB.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.i
-.PHONY : src/nodeBB.cpp.i
-
-src/nodeBB.s: src/nodeBB.cpp.s
-
-.PHONY : src/nodeBB.s
-
-# target to generate assembly for a file
-src/nodeBB.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.s
-.PHONY : src/nodeBB.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -316,21 +262,15 @@ help:
 	@echo "... src/KpSolver.o"
 	@echo "... src/KpSolver.i"
 	@echo "... src/KpSolver.s"
-	@echo "... src/KpSolverBB.o"
-	@echo "... src/KpSolverBB.i"
-	@echo "... src/KpSolverBB.s"
 	@echo "... src/KpSolverDP.o"
 	@echo "... src/KpSolverDP.i"
 	@echo "... src/KpSolverDP.s"
-	@echo "... src/KpSolverGreedy.o"
-	@echo "... src/KpSolverGreedy.i"
-	@echo "... src/KpSolverGreedy.s"
+	@echo "... src/MatDP.o"
+	@echo "... src/MatDP.i"
+	@echo "... src/MatDP.s"
 	@echo "... src/Test.o"
 	@echo "... src/Test.i"
 	@echo "... src/Test.s"
-	@echo "... src/nodeBB.o"
-	@echo "... src/nodeBB.i"
-	@echo "... src/nodeBB.s"
 .PHONY : help
 
 

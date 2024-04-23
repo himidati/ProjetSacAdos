@@ -19,21 +19,19 @@ private:
     void importInstance(const string& fileName);
 
 protected:
-
     // Items and knapsack properties.
-    int nbItems; // Number of items.
-    vector<int> weights; //weights of items
-    vector<int> values; //values of items
-    int knapsackBound;     // Knapsack bound
+    uint nbItems; // Number of items.
+    vector<uint> weights; //weights of items
+    vector<uint> values; //values of items
+    unsigned long knapsackBound;     // Knapsack bound
 
     // Solution (items in the knapsack).
     vector<bool> solution;
-    long costSolution;
+    unsigned long costSolution;
     double upperBoundOPT;
     std::string _filename;
 
 public:
-    virtual void solve()=0;
 
     KpSolver(std::string const & filename) : _filename(filename) {importInstance(filename);}
 

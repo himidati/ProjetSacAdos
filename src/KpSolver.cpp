@@ -14,16 +14,14 @@ void KpSolver::importInstance(const string& fileName) {
     infile >> nbItems;
 
     weights.resize(nbItems);
-    for (int i = 0; i < nbItems; i++) infile >> weights[i];
+    for (uint i = 0; i < nbItems; i++) infile >> weights[i];
 
     values.resize(nbItems);
-    for (int i = 0; i < nbItems; i++) infile >> values[i];
+    for (uint i = 0; i < nbItems; i++) infile >> values[i];
     
     infile >> knapsackBound;
 
     sortKnapsack();
-
-
  }
 
 
@@ -35,7 +33,7 @@ void KpSolver::sortKnapsack() {
 	std::pair <int,int> item;
 	std::pair<std::pair<int,int>,float> itemCost;
 
-	for (int i = 0; i < nbItems; i++){
+	for (uint i = 0; i < nbItems; i++){
 		item = make_pair (weights[i],values[i]);
 		itemCost = make_pair(item,(float) values[i] / ((float) weights[i]) );
 	        newStruct.push_back(itemCost);
@@ -45,7 +43,7 @@ void KpSolver::sortKnapsack() {
 			[](std::pair<std::pair<int,int>,float> i, std::pair<std::pair<int,int>,float> j) {return i.second > j.second;}
 	);
 
-	for (int i = 0; i < nbItems; i++){
+	for (uint i = 0; i < nbItems; i++){
 		weights[i] = newStruct[i].first.first;
 		values[i] = newStruct[i].first.second;		
 	}
@@ -66,7 +64,7 @@ void KpSolver::printKnapsackInstance() {
 
 	cout << "Max capacity knapsack : " << knapsackBound  << endl;
 
-	for (int i = 0; i < nbItems; i++){
+	for (uint i = 0; i < nbItems; i++){
 	        cout << "Item: " << i << " Weight : " << weights[i]  << " Value : " << values[i] << " Marginal Cost : " << (float) values[i] / ((float) weights[i])  << endl;
 	}
 	 cout << endl;	
@@ -91,7 +89,7 @@ void KpSolver::printKnapsackSolution(bool printSol) {
 
 
 
-
+/*
 void KpSolver::extractSubInstance(int idMin, int idMax) {
 
     idMin= max(0,idMin);
@@ -120,7 +118,6 @@ void KpSolver::extractSubInstance(int idMin, int idMax) {
 	}
 }
 
-/*
 void KpSolver::exportSubInstance(string& fileName, int id1, int id2, float propFactor) {
 	fileName.substr(0,fileName.size()-2);
 	fileName+= "_";
@@ -157,7 +154,7 @@ void KpSolver::exportSubInstance(string& fileName, int id1, int id2, float propF
     for (unsigned int i = id1; i <= id2; ++i) outfile << values[i] << " ";
     outfile << endl;
     outfile << (long) (propFactor * ((double) partialWeight)/((double) totalWeight));
-}/*
+}
 */
 
 
@@ -169,7 +166,7 @@ void KpSolver::reindexMemo(bool sortMode) {
 	std::pair <int,int> item;
 	std::pair<std::pair<int,int>,float> itemCost;
 
-	for (int i = 0; i < nbItems; i++){
+	for (uint i = 0; i < nbItems; i++){
 		item = make_pair (weights[i],values[i]);
 		itemCost = make_pair(item,(float) weights[i] / ((float) values[i]) );
 	        newStruct.push_back(itemCost);
@@ -181,7 +178,7 @@ void KpSolver::reindexMemo(bool sortMode) {
 	else std::sort(newStruct.begin(), newStruct.end(),
 			[](std::pair<std::pair<int,int>,float> i, std::pair<std::pair<int,int>,float> j) { return i.first.first > j.first.first;  });
 
-	for (int i = 0; i < nbItems; i++){
+	for (uint i = 0; i < nbItems; i++){
 		weights[i] = newStruct[i].first.first;
 		values[i] = newStruct[i].first.second;
 	}

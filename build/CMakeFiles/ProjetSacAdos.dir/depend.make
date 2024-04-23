@@ -4,27 +4,16 @@
 CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.o: ../src/KpSolver.cpp
 CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.o: ../src/KpSolver.hpp
 
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.o: ../src/KpSolver.hpp
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.o: ../src/KpSolverBB.cpp
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.o: ../src/KpSolverBB.hpp
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.o: ../src/KpSolverDP.hpp
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.o: ../src/nodeBB.hpp
-
 CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o: ../src/KpSolver.hpp
 CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o: ../src/KpSolverDP.cpp
 CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o: ../src/KpSolverDP.hpp
+CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o: ../src/MatDP.hpp
 
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.o: ../src/KpSolver.hpp
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.o: ../src/KpSolverGreedy.cpp
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.o: ../src/KpSolverGreedy.hpp
+CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o: ../src/MatDP.cpp
+CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o: ../src/MatDP.hpp
 
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/KpSolver.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/KpSolverDP.hpp
-CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/KpSolverGreedy.hpp
-CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/KpSolverHeurDP.cpp
-CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/KpSolverHeurDP.hpp
+CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/MatDP.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/Test.cpp
-
-CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o: ../src/nodeBB.cpp
-CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o: ../src/nodeBB.hpp
 

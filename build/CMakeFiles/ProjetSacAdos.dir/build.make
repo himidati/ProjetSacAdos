@@ -102,48 +102,22 @@ CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/etud/stage/ProjetSacAdos/src/KpSolver.cpp -o CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.s
 
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.o: CMakeFiles/ProjetSacAdos.dir/flags.make
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.o: ../src/KpSolverGreedy.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.o -c /home/etud/stage/ProjetSacAdos/src/KpSolverGreedy.cpp
+CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o: CMakeFiles/ProjetSacAdos.dir/flags.make
+CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o: ../src/MatDP.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o -c /home/etud/stage/ProjetSacAdos/src/MatDP.cpp
 
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/etud/stage/ProjetSacAdos/src/KpSolverGreedy.cpp > CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.i
+CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/etud/stage/ProjetSacAdos/src/MatDP.cpp > CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.i
 
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/etud/stage/ProjetSacAdos/src/KpSolverGreedy.cpp -o CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.s
-
-CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o: CMakeFiles/ProjetSacAdos.dir/flags.make
-CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o: ../src/nodeBB.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o -c /home/etud/stage/ProjetSacAdos/src/nodeBB.cpp
-
-CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/etud/stage/ProjetSacAdos/src/nodeBB.cpp > CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.i
-
-CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/etud/stage/ProjetSacAdos/src/nodeBB.cpp -o CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.s
-
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.o: CMakeFiles/ProjetSacAdos.dir/flags.make
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.o: ../src/KpSolverBB.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.o -c /home/etud/stage/ProjetSacAdos/src/KpSolverBB.cpp
-
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/etud/stage/ProjetSacAdos/src/KpSolverBB.cpp > CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.i
-
-CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/etud/stage/ProjetSacAdos/src/KpSolverBB.cpp -o CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.s
+CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/etud/stage/ProjetSacAdos/src/MatDP.cpp -o CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.s
 
 CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o: CMakeFiles/ProjetSacAdos.dir/flags.make
 CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o: ../src/KpSolverDP.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o -c /home/etud/stage/ProjetSacAdos/src/KpSolverDP.cpp
 
 CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.i: cmake_force
@@ -158,9 +132,7 @@ CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.s: cmake_force
 ProjetSacAdos_OBJECTS = \
 "CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o" \
 "CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.o" \
-"CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.o" \
-"CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o" \
-"CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.o" \
+"CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o" \
 "CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o"
 
 # External object files for target ProjetSacAdos
@@ -168,13 +140,11 @@ ProjetSacAdos_EXTERNAL_OBJECTS =
 
 ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o
 ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.o
-ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/KpSolverGreedy.cpp.o
-ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o
-ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/KpSolverBB.cpp.o
+ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o
 ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o
 ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/build.make
 ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ProjetSacAdos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ProjetSacAdos"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ProjetSacAdos.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

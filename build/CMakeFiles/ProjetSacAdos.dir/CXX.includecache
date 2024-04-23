@@ -27,4 +27,16 @@ KpSolver.hpp
 /home/etud/stage/ProjetSacAdos/src/KpSolverDP.hpp
 KpSolver.hpp
 /home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
+MatDP.hpp
+/home/etud/stage/ProjetSacAdos/src/MatDP.hpp
+memory
+-
+
+/home/etud/stage/ProjetSacAdos/src/MatDP.hpp
+iostream
+-
+fstream
+-
+vector
+-
 

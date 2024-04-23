@@ -7,8 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(ProjetSacAdos  
     src/Test.cpp  
-    src/KpSolver.cpp 
-    src/KpSolverGreedy.cpp
-    src/nodeBB.cpp 
-    src/KpSolverBB.cpp
+    src/KpSolver.cpp
+    src/MatDP.cpp 
     src/KpSolverDP.cpp)
