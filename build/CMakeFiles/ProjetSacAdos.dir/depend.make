@@ -4,16 +4,21 @@
 CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.o: ../src/KpSolver.cpp
 CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.o: ../src/KpSolver.hpp
 
+CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o: ../src/KpDefs.hpp
 CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o: ../src/KpSolver.hpp
 CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o: ../src/KpSolverDP.cpp
 CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o: ../src/KpSolverDP.hpp
 CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o: ../src/MatDP.hpp
 
+CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o: ../src/KpDefs.hpp
 CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o: ../src/MatDP.cpp
 CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o: ../src/MatDP.hpp
 
+CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/KpDefs.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/KpSolver.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/KpSolverDP.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/MatDP.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/Test.cpp
+CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/parser.cpp
+CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/versionSolver.hpp
 

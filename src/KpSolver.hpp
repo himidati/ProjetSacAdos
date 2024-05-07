@@ -1,8 +1,5 @@
 //********* kpSolver.hpp *********
-
-#ifndef KPSOLVER_HPP
-#define KPSOLVER_HPP
-
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -53,5 +50,4 @@ public:
 	int getNbItems() const {return nbItems;	};
 };
 
-#endif
 

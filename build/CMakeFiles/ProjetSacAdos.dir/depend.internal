@@ -5,15 +5,20 @@ CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.o
  /home/etud/stage/ProjetSacAdos/src/KpSolver.cpp
  /home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
 CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o
+ /home/etud/stage/ProjetSacAdos/src/KpDefs.hpp
  /home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
  /home/etud/stage/ProjetSacAdos/src/KpSolverDP.cpp
  /home/etud/stage/ProjetSacAdos/src/KpSolverDP.hpp
  /home/etud/stage/ProjetSacAdos/src/MatDP.hpp
 CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o
+ /home/etud/stage/ProjetSacAdos/src/KpDefs.hpp
  /home/etud/stage/ProjetSacAdos/src/MatDP.cpp
  /home/etud/stage/ProjetSacAdos/src/MatDP.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o
+ /home/etud/stage/ProjetSacAdos/src/KpDefs.hpp
  /home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
  /home/etud/stage/ProjetSacAdos/src/KpSolverDP.hpp
  /home/etud/stage/ProjetSacAdos/src/MatDP.hpp
  /home/etud/stage/ProjetSacAdos/src/Test.cpp
+ /home/etud/stage/ProjetSacAdos/src/parser.cpp
+ /home/etud/stage/ProjetSacAdos/src/versionSolver.hpp

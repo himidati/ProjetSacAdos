@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/etud/stage/ProjetSacAdos/src/KpDefs.hpp
+iostream
+-
+
 /home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
 iostream
 -
@@ -16,14 +20,6 @@ vector
 algorithm
 -
 
-/home/etud/stage/ProjetSacAdos/src/KpSolverDP.cpp
-KpSolverDP.hpp
-/home/etud/stage/ProjetSacAdos/src/KpSolverDP.hpp
-omp.h
--
-KpSolver.hpp
-/home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
-
 /home/etud/stage/ProjetSacAdos/src/KpSolverDP.hpp
 KpSolver.hpp
 /home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
@@ -33,10 +29,38 @@ memory
 -
 
 /home/etud/stage/ProjetSacAdos/src/MatDP.hpp
+KpDefs.hpp
+/home/etud/stage/ProjetSacAdos/src/KpDefs.hpp
 iostream
 -
 fstream
 -
 vector
+-
+
+/home/etud/stage/ProjetSacAdos/src/Test.cpp
+KpSolver.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
+chrono
+-
+KpSolverDP.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolverDP.hpp
+versionSolver.hpp
+/home/etud/stage/ProjetSacAdos/src/versionSolver.hpp
+parser.cpp
+/home/etud/stage/ProjetSacAdos/src/parser.cpp
+
+/home/etud/stage/ProjetSacAdos/src/parser.cpp
+iostream
+-
+fstream
+-
+vector
+-
+string
+-
+
+/home/etud/stage/ProjetSacAdos/src/versionSolver.hpp
+string
 -
 
