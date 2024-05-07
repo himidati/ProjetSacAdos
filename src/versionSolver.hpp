@@ -4,12 +4,13 @@ enum class SolverVersion {
     KpSolverDPv0,
     KpSolverDPv1,
     KpSolverDPv1bis,
-    KpSolverDPv2
+    KpSolverDPv2,
+    KpSolverDPv3
 };
 
 SolverVersion& operator++(SolverVersion& version) {
     version = static_cast<SolverVersion>(static_cast<int>(version) + 1);
-    if (version == SolverVersion::KpSolverDPv2 ) {
+    if (version == SolverVersion::KpSolverDPv3 ) {
         version = static_cast<SolverVersion>(0);
     }
     return version;

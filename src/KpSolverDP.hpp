@@ -9,7 +9,8 @@ enum class MatDPType {
     MatDPvectVect, 
     MatDPvect, 
     MatDPtabTab,
-    MatDPtab    
+    MatDPtab,
+    Mat  
 };
 
 

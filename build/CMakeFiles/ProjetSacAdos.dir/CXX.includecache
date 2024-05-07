@@ -20,6 +20,14 @@ vector
 algorithm
 -
 
+/home/etud/stage/ProjetSacAdos/src/KpSolverDP.cpp
+KpSolverDP.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolverDP.hpp
+omp.h
+-
+KpSolver.hpp
+/home/etud/stage/ProjetSacAdos/src/KpSolver.hpp
+
 /home/etud/stage/ProjetSacAdos/src/KpSolverDP.hpp
 KpSolver.hpp
 /home/etud/stage/ProjetSacAdos/src/KpSolver.hpp

@@ -6,7 +6,7 @@
 
 MatDPType& operator++(MatDPType& type) {
     type = static_cast<MatDPType>(static_cast<int>(type) + 1);
-    if (type == MatDPType::MatDPtab) {
+    if (type == MatDPType::Mat) {
         type = static_cast<MatDPType>(0);
     }
     return type;
