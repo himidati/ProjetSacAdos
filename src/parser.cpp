@@ -21,7 +21,7 @@ string convertFile(const string& inputFileName) {
         return "Erreur: Impossible d'ouvrir le fichier d'entrée." ;
     }
 
-    string outputFileName = "outputs/xp_" + inputFileName;
+    string outputFileName = "xp_" + inputFileName;
     
     ofstream outputFile(outputFileName);
     if (!outputFile.is_open())
