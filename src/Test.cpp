@@ -3,6 +3,7 @@
 #include "KpSolverDP.hpp"
 #include "versionSolver.hpp"
 #include "parser.cpp"
+#include <string.h>
 
 void testDP(std::string const &instanceFile, bool verboseMode, MatDPType matrixType, KpSolverDP * kp){
 
@@ -29,6 +30,14 @@ void testDP(std::string const &instanceFile, bool verboseMode, MatDPType matrixT
 
 void testAll(const string& instanceFile, bool verboseMode) {
 
+    ofstream outputFile("results.csv");
+    if (!outputFile) {
+        cout << "Erreur: Impossible de créer le fichier CSV." << endl;
+        return;
+    }
+
+    //outputFile << "ElapsedTime; value" << endl;
+
     MatDPType matrixType = MatDPType::MatDPvectVect;
 
     cout<<"programmation dynamique "<<endl;
@@ -52,6 +61,7 @@ void testAll(const string& instanceFile, bool verboseMode) {
                 case SolverVersion::KpSolverDPv2:
                     kp = make_unique<KpSolverDPv2>(instanceFile, matrixType);
                     break;
+                case SolverVersion::KpSolverDPv3: break;
             }
             cout<<"-----------------------------------------------------------"<<endl;
 
@@ -71,6 +81,8 @@ void testAll(const string& instanceFile, bool verboseMode) {
         elapsed_seconds = end - start;
         cout << "elapsed time: " << elapsed_seconds.count() << "s" << endl;
         
+        outputFile << instanceFile << "; " <<elapsed_seconds.count() <<"; "<<kp->getUpperBound() << endl;
+
         kp->printKnapsackSolution(verboseMode);
         if (verboseMode) kp->printMatrixDP();
 
@@ -79,23 +91,29 @@ void testAll(const string& instanceFile, bool verboseMode) {
         } while (tempSolverVersion != SolverVersion::KpSolverDPv0);
 
         ++matrixType;
-
+        
         cout<<endl;
     } while (matrixType != MatDPType::MatDPvectVect);
+    
+    outputFile.close();
 }
 
 //TODO:calcul sur toutes les instances (sauf trop grandes), sortir tableau .csv avec temps de calculs et valeurs obtenues
+
 
 // kp_10000_1_0.03.in a 10000 objets passe, pas l'instance originale
 
 int main(int argc, char** argv){
 
-    const char* instanceFile;
+    //const char* instanceFile;
+    string instanceFile;
+
     string cheminDefaut =  "../instances/courseExample.in"; //"../instances/kp_100_1.in";
     
-    /*string file=convertFile("../instances2/low-dimensional/f1_l-d_kp_10_269");
+    cheminDefaut=convertFile("../instances2/low-dimensional/f3_l-d_kp_4_20");
 
-    string cheminDefaut =  "../outputs/"+file; //ne fonctionne pas encore*/
+    vector<const char *> liste_low_dimentional= { "f1_l-d_kp_10_269","f2_l-d_kp_20_878", "f3_l-d_kp_4_20", "f4_l-d_kp_4_11",
+        "f5_l-d_kp_15_375","f6_l-d_kp_10_60","f8_l-d_kp_23_10000","f9_l-d_kp_5_80","f10_l-d_kp_20_879" };
 
     if (argc < 2) {
         //cerr << "Usage: knapsack inputFile [heuristicMode] [verbosity]" << endl;
@@ -104,6 +122,7 @@ int main(int argc, char** argv){
         //return 1;
 
         instanceFile = cheminDefaut.c_str();
+
 
     }
     else     instanceFile = argv[1];
@@ -116,6 +135,19 @@ int main(int argc, char** argv){
     KpSolverDP* kp = new KpSolverDPv2(instanceFile, matrixType);
 
     //testDP(instanceFile, verboseMode, matrixType, kp);
-    testAll(instanceFile, verboseMode);
+
+    string chemin= "../instances2/low-dimensional/";
+
+    for(const char* str : liste_low_dimentional){
+        //instanceFile=strcat(chemin.c_str(),str);
+        
+        instanceFile = chemin + str;
+
+ 
+        testAll(instanceFile.c_str(), verboseMode);
+    }
+    
+    //testAll(instanceFile, verboseMode);
+    
     return 0;
 }

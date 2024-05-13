@@ -20,5 +20,6 @@ CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/KpSolverDP.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/MatDP.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/Test.cpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/parser.cpp
+CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/parser.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/versionSolver.hpp
 

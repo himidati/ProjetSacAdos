@@ -1,17 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <string>
-
-using namespace std;
-
-
-// Structure pour stocker les valeurs et les poids
-struct Item {
-    int value;
-    int weight;
-};
-
+#include"parser.hpp"
 
 string convertFile(const string& inputFileName) {
 
@@ -21,7 +11,11 @@ string convertFile(const string& inputFileName) {
         return "Erreur: Impossible d'ouvrir le fichier d'entrée." ;
     }
 
-    string outputFileName = "xp_" + inputFileName;
+    // Extraire le nom du fichier du chemin d'entrée
+    size_t lastSlashPos = inputFileName.find_last_of("/\\");
+    string inputFileNameOnly = (lastSlashPos != string::npos) ? inputFileName.substr(lastSlashPos + 1) : inputFileName;
+
+    string outputFileName = inputFileName+".in";
     
     ofstream outputFile(outputFileName);
     if (!outputFile.is_open())
@@ -62,4 +56,8 @@ string convertFile(const string& inputFileName) {
     outputFile << wmax << endl;
 
     return outputFileName;
+}
+
+bool toCSV(const string & inputFileName){
+    return true;
 }

@@ -24,6 +24,8 @@ string tostring(MatDPType _type){
             s= "MatDPtabTab"; break;
         case MatDPType::MatDPtab :
             s= "MatDPtab";
+        case MatDPType::Mat:
+            break;
     }
      return s;
 }
@@ -48,6 +50,7 @@ KpSolverDP::KpSolverDP(std::string const & filename,  MatDPType type = MatDPType
     case MatDPType::MatDPtab :
         _matDP= std::make_unique<MatDPtab>(nbItems, knapsackBound+1);
         break;
+    case MatDPType::Mat: break;
 }
 }
 

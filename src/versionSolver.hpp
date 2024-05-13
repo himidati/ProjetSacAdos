@@ -28,6 +28,8 @@ std::string toStringSolver(SolverVersion _type){
             s= "KpSolverDPv1bis"; break;
         case SolverVersion::KpSolverDPv2 :
             s= "KpSolverDPv2";
+        case SolverVersion::KpSolverDPv3:
+            break;
     }
      return s;
 }
