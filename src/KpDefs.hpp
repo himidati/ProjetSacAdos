@@ -4,6 +4,6 @@
 
 using namespace std;
 
-//using T=unsigned long;
-using T=unsigned int;
+using T=unsigned long;
+//using T=unsigned int;
 

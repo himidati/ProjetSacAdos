@@ -136,7 +136,7 @@ void KpSolverDPv2::solve(){
      _matDP->fillFirstLineDP(values[0], weights[0]);
     for (uint n = 1; n <= nbItems - 1; ++n)
 	{
-            _matDP->computeLineDP(n, values[n], weights[n]);
+        _matDP->computeLineDP(n, values[n], weights[n]);
 	}
     costSolution = _matDP->getElement(nbItems-1,knapsackBound);
     upperBoundOPT=static_cast<double>(costSolution);
