@@ -128,12 +128,68 @@ CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/etud/stage/ProjetSacAdos/src/KpSolverDP.cpp -o CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.s
 
+CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o: CMakeFiles/ProjetSacAdos.dir/flags.make
+CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o: ../src/selectionFile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o -c /home/etud/stage/ProjetSacAdos/src/selectionFile.cpp
+
+CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/etud/stage/ProjetSacAdos/src/selectionFile.cpp > CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.i
+
+CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/etud/stage/ProjetSacAdos/src/selectionFile.cpp -o CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.s
+
+CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.o: CMakeFiles/ProjetSacAdos.dir/flags.make
+CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.o: ../src/parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.o -c /home/etud/stage/ProjetSacAdos/src/parser.cpp
+
+CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/etud/stage/ProjetSacAdos/src/parser.cpp > CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.i
+
+CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/etud/stage/ProjetSacAdos/src/parser.cpp -o CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.s
+
+CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o: CMakeFiles/ProjetSacAdos.dir/flags.make
+CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o: ../src/nodeBB.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o -c /home/etud/stage/ProjetSacAdos/src/nodeBB.cpp
+
+CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/etud/stage/ProjetSacAdos/src/nodeBB.cpp > CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.i
+
+CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/etud/stage/ProjetSacAdos/src/nodeBB.cpp -o CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.s
+
+CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o: CMakeFiles/ProjetSacAdos.dir/flags.make
+CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o: ../src/kpSolverBB.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o -c /home/etud/stage/ProjetSacAdos/src/kpSolverBB.cpp
+
+CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/etud/stage/ProjetSacAdos/src/kpSolverBB.cpp > CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.i
+
+CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/etud/stage/ProjetSacAdos/src/kpSolverBB.cpp -o CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.s
+
 # Object files for target ProjetSacAdos
 ProjetSacAdos_OBJECTS = \
 "CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o" \
 "CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.o" \
 "CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o" \
-"CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o"
+"CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o" \
+"CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o" \
+"CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.o" \
+"CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o" \
+"CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o"
 
 # External object files for target ProjetSacAdos
 ProjetSacAdos_EXTERNAL_OBJECTS =
@@ -142,9 +198,13 @@ ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o
 ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.o
 ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o
 ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o
+ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o
+ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.o
+ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o
+ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o
 ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/build.make
 ProjetSacAdos: CMakeFiles/ProjetSacAdos.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ProjetSacAdos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/etud/stage/ProjetSacAdos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ProjetSacAdos"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ProjetSacAdos.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

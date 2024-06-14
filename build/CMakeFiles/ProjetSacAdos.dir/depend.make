@@ -19,6 +19,32 @@ CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/KpSolver.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/KpSolverDP.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/MatDP.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/Test.cpp
-CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/parser.cpp
+CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/kpSolverBB.hpp
+CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/nodeBB.hpp
 CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/parser.hpp
+CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o: ../src/selectionFile.hpp
+
+CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o: ../src/KpDefs.hpp
+CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o: ../src/KpSolver.hpp
+CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o: ../src/KpSolverDP.hpp
+CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o: ../src/MatDP.hpp
+CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o: ../src/kpSolverBB.cpp
+CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o: ../src/kpSolverBB.hpp
+CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o: ../src/nodeBB.hpp
+
+CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o: ../src/nodeBB.cpp
+CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o: ../src/nodeBB.hpp
+
+CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.o: ../src/parser.cpp
+CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.o: ../src/parser.hpp
+
+CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o: ../src/KpDefs.hpp
+CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o: ../src/KpSolver.hpp
+CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o: ../src/KpSolverDP.hpp
+CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o: ../src/MatDP.hpp
+CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o: ../src/kpSolverBB.hpp
+CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o: ../src/nodeBB.hpp
+CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o: ../src/parser.hpp
+CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o: ../src/selectionFile.cpp
+CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o: ../src/selectionFile.hpp
 

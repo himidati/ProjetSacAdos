@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/home/etud/stage/ProjetSacAdos/build",
+  "command": "/usr/bin/c++   -g -std=gnu++17 -o CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.o -c /home/etud/stage/ProjetSacAdos/src/Test.cpp",
+  "file": "/home/etud/stage/ProjetSacAdos/src/Test.cpp"
+},
+{
+  "directory": "/home/etud/stage/ProjetSacAdos/build",
+  "command": "/usr/bin/c++   -g -std=gnu++17 -o CMakeFiles/ProjetSacAdos.dir/src/KpSolver.cpp.o -c /home/etud/stage/ProjetSacAdos/src/KpSolver.cpp",
+  "file": "/home/etud/stage/ProjetSacAdos/src/KpSolver.cpp"
+},
+{
+  "directory": "/home/etud/stage/ProjetSacAdos/build",
+  "command": "/usr/bin/c++   -g -std=gnu++17 -o CMakeFiles/ProjetSacAdos.dir/src/MatDP.cpp.o -c /home/etud/stage/ProjetSacAdos/src/MatDP.cpp",
+  "file": "/home/etud/stage/ProjetSacAdos/src/MatDP.cpp"
+},
+{
+  "directory": "/home/etud/stage/ProjetSacAdos/build",
+  "command": "/usr/bin/c++   -g -std=gnu++17 -o CMakeFiles/ProjetSacAdos.dir/src/KpSolverDP.cpp.o -c /home/etud/stage/ProjetSacAdos/src/KpSolverDP.cpp",
+  "file": "/home/etud/stage/ProjetSacAdos/src/KpSolverDP.cpp"
+},
+{
+  "directory": "/home/etud/stage/ProjetSacAdos/build",
+  "command": "/usr/bin/c++   -g -std=gnu++17 -o CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o -c /home/etud/stage/ProjetSacAdos/src/selectionFile.cpp",
+  "file": "/home/etud/stage/ProjetSacAdos/src/selectionFile.cpp"
+},
+{
+  "directory": "/home/etud/stage/ProjetSacAdos/build",
+  "command": "/usr/bin/c++   -g -std=gnu++17 -o CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.o -c /home/etud/stage/ProjetSacAdos/src/parser.cpp",
+  "file": "/home/etud/stage/ProjetSacAdos/src/parser.cpp"
+},
+{
+  "directory": "/home/etud/stage/ProjetSacAdos/build",
+  "command": "/usr/bin/c++   -g -std=gnu++17 -o CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o -c /home/etud/stage/ProjetSacAdos/src/nodeBB.cpp",
+  "file": "/home/etud/stage/ProjetSacAdos/src/nodeBB.cpp"
+},
+{
+  "directory": "/home/etud/stage/ProjetSacAdos/build",
+  "command": "/usr/bin/c++   -g -std=gnu++17 -o CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o -c /home/etud/stage/ProjetSacAdos/src/kpSolverBB.cpp",
+  "file": "/home/etud/stage/ProjetSacAdos/src/kpSolverBB.cpp"
+}
+]

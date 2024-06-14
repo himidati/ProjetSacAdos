@@ -250,6 +250,114 @@ src/Test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/Test.cpp.s
 .PHONY : src/Test.cpp.s
 
+src/kpSolverBB.o: src/kpSolverBB.cpp.o
+
+.PHONY : src/kpSolverBB.o
+
+# target to build an object file
+src/kpSolverBB.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.o
+.PHONY : src/kpSolverBB.cpp.o
+
+src/kpSolverBB.i: src/kpSolverBB.cpp.i
+
+.PHONY : src/kpSolverBB.i
+
+# target to preprocess a source file
+src/kpSolverBB.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.i
+.PHONY : src/kpSolverBB.cpp.i
+
+src/kpSolverBB.s: src/kpSolverBB.cpp.s
+
+.PHONY : src/kpSolverBB.s
+
+# target to generate assembly for a file
+src/kpSolverBB.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/kpSolverBB.cpp.s
+.PHONY : src/kpSolverBB.cpp.s
+
+src/nodeBB.o: src/nodeBB.cpp.o
+
+.PHONY : src/nodeBB.o
+
+# target to build an object file
+src/nodeBB.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.o
+.PHONY : src/nodeBB.cpp.o
+
+src/nodeBB.i: src/nodeBB.cpp.i
+
+.PHONY : src/nodeBB.i
+
+# target to preprocess a source file
+src/nodeBB.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.i
+.PHONY : src/nodeBB.cpp.i
+
+src/nodeBB.s: src/nodeBB.cpp.s
+
+.PHONY : src/nodeBB.s
+
+# target to generate assembly for a file
+src/nodeBB.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/nodeBB.cpp.s
+.PHONY : src/nodeBB.cpp.s
+
+src/parser.o: src/parser.cpp.o
+
+.PHONY : src/parser.o
+
+# target to build an object file
+src/parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.o
+.PHONY : src/parser.cpp.o
+
+src/parser.i: src/parser.cpp.i
+
+.PHONY : src/parser.i
+
+# target to preprocess a source file
+src/parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.i
+.PHONY : src/parser.cpp.i
+
+src/parser.s: src/parser.cpp.s
+
+.PHONY : src/parser.s
+
+# target to generate assembly for a file
+src/parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/parser.cpp.s
+.PHONY : src/parser.cpp.s
+
+src/selectionFile.o: src/selectionFile.cpp.o
+
+.PHONY : src/selectionFile.o
+
+# target to build an object file
+src/selectionFile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.o
+.PHONY : src/selectionFile.cpp.o
+
+src/selectionFile.i: src/selectionFile.cpp.i
+
+.PHONY : src/selectionFile.i
+
+# target to preprocess a source file
+src/selectionFile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.i
+.PHONY : src/selectionFile.cpp.i
+
+src/selectionFile.s: src/selectionFile.cpp.s
+
+.PHONY : src/selectionFile.s
+
+# target to generate assembly for a file
+src/selectionFile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetSacAdos.dir/build.make CMakeFiles/ProjetSacAdos.dir/src/selectionFile.cpp.s
+.PHONY : src/selectionFile.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -271,6 +379,18 @@ help:
 	@echo "... src/Test.o"
 	@echo "... src/Test.i"
 	@echo "... src/Test.s"
+	@echo "... src/kpSolverBB.o"
+	@echo "... src/kpSolverBB.i"
+	@echo "... src/kpSolverBB.s"
+	@echo "... src/nodeBB.o"
+	@echo "... src/nodeBB.i"
+	@echo "... src/nodeBB.s"
+	@echo "... src/parser.o"
+	@echo "... src/parser.i"
+	@echo "... src/parser.s"
+	@echo "... src/selectionFile.o"
+	@echo "... src/selectionFile.i"
+	@echo "... src/selectionFile.s"
 .PHONY : help
 
 

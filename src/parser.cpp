@@ -1,10 +1,61 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include<filesystem>
 #include"parser.hpp"
+#include<algorithm>
 
-namespace fs=std::filesystem;
+
+/**
+ * retourne tous les fichiers depuis un dossier donné en paramètre
+*/
+vector<string> recupererTousFichier(string const &folder)
+{
+    vector<string> listFiles;
+
+    for (const auto &fichier : fs::directory_iterator(folder))
+    {
+        if (fs::is_regular_file(fichier.status()))
+        {
+            listFiles.push_back(fichier.path());
+        }
+    }
+
+    return listFiles;
+}
+
+
+/**
+ * met au même format tous les instances
+ * prend en paramètre le txtfile contenant les chemins des instances
+*/
+void parseInstances(string const & txtfile){
+
+    ifstream inputfile(txtfile);
+    if (!inputfile.is_open())
+    {
+        cerr << "Impossible d'ouvrir le fichier \""<<txtfile<<"\" contenant les chemins des instances" << endl;
+        return;
+    }
+
+    string directory;
+
+    while (getline(inputfile, directory)) {
+        directory.erase(directory.find_last_not_of(" \n\r\t") + 1);
+
+        if (!fs::is_directory(directory)) {
+            cerr << directory << " n'est pas un dossier" << endl;
+            continue;  // itération suivante si ce n'est pas un dossier
+        }
+
+        // On récupère tous les fichiers du dossier
+        vector<string> listFiles = recupererTousFichier(directory);
+
+        for (const auto &file : listFiles) {
+            convertFile(file);
+        }
+
+    }
+}
 
 
 void convertFile(const string &inputFileName)
@@ -13,83 +64,32 @@ void convertFile(const string &inputFileName)
     ifstream inputFile(inputFileName);
     if (!inputFile)
     {
-        cerr << "Erreur: Impossible d'ouvrir le fichier d'entrée." << endl;
+        cerr << "Erreur: Impossible d'ouvrir le fichier d'entrée \""<<inputFileName<<"\"" << endl;
         return;
     }
 
     // Extrait le nom du fichier du chemin d'entrée
     fs::path inputPath(inputFileName);
-    std::string outputFileName;
 
     if (inputPath.extension() == ".csv")
     {
-        outputFileName = inputPath.replace_extension(".in").string();
-    }
-    else
-    {
-        outputFileName = inputFileName + ".in";
+        convertInstanceType3(inputFileName);
+        
     }
 
-    ofstream outputFile(outputFileName);
-    if (!outputFile.is_open())
+    else if(inputPath.extension()!=".in") //est au format 2
     {
-        cerr << "Erreur: Impossible de créer le fichier de sortie." << endl;
-        return;
-    }
+        string outputFileName = inputPath.stem().string() + ".in";
+        fs::path directoryPath = "../../data/allIns";
+        fs::path filePath = directoryPath / outputFileName;
 
-    if (inputPath.extension() == ".csv")
-    {
-        // Skip the first line
-        std::string line;
-        std::getline(inputFile, line);
-
-        int n, wmax;
-        std::getline(inputFile, line);
-        std::istringstream issN(line);
-        std::string temp;
-        issN >> temp >> n;
-
-        std::getline(inputFile, line);
-        std::istringstream issW(line);
-        issW >> temp >> wmax;
-
-        // Skip the next two lines
-        std::getline(inputFile, line);
-        std::getline(inputFile, line);
-
-        std::vector<int> values(n);
-        std::vector<int> weights(n);
-
-        for (int i = 0; i < n; ++i)
+        ofstream outputFile(filePath.string());
+        if (!outputFile.is_open())
         {
-            std::getline(inputFile, line);
-            std::istringstream iss(line);
-            int index, value, weight, taken;
-            char comma;
-            iss >> index >> comma >> value >> comma >> weight >> comma >> taken;
-            values[i] = value;
-            weights[i] = weight;
+            cerr << "Erreur: Impossible de parser le fichier "<<inputFileName << endl;
+            return;
         }
 
-        // Write to output file
-        outputFile << n << std::endl;
-
-        for (int i = 0; i < n; ++i)
-        {
-            outputFile << values[i] << " ";
-        }
-        outputFile << std::endl;
-
-        for (int i = 0; i < n; ++i)
-        {
-            outputFile << weights[i] << " ";
-        }
-        outputFile << std::endl;
-
-        outputFile << wmax << std::endl;
-    }
-    else
-    {
         int n, wmax;
         inputFile >> n >> wmax;
 
@@ -125,108 +125,214 @@ void convertFile(const string &inputFileName)
 
         // capacité max du sac
         outputFile << wmax << endl;
+        
+    }else if (inputPath.extension() == ".in"){
+        try
+        {
+            fs::path destinationDir = "../../data/allIns";
+            if (!fs::exists(destinationDir))
+            {
+                fs::create_directories(destinationDir);
+            }
+            fs::path destinationPath = destinationDir / inputPath.filename();
+            fs::copy_file(inputPath, destinationPath, fs::copy_options::overwrite_existing);
+        }
+        catch (const fs::filesystem_error &e)
+        {
+            cerr << "Erreur: Impossible de copier le fichier \"" << inputFileName << "\" vers \"" << "../../data" << "\" : " << e.what() << endl;
+        }
     }
+    
     inputFile.close();
-
-    cout << "conversion terminé avec succès" << endl;
 }
 
-
-
-void test(string const & inputFileName) {
-
-    std::string outputFileName = fs::path(inputFileName).replace_extension("in").string();
-    std::ofstream outputFile((fs::path("../output") / outputFileName).string());
-
-    std::ifstream inputFile(inputFileName);
-    std::string line;
+/**
+ * génère l'instance au format .in 
+ * génère la solution de l'instance dans un .sol
+*/
+void convertInstanceType3(const string& inputfile) {
+    ifstream inputFile(inputfile);
+    string line;
 
     if (!inputFile.is_open()) {
-        std::cerr << "Erreur lors de l'ouverture du fichier d'entrée." << std::endl;
+        cerr << "Erreur lors de l'ouverture du fichier d'entrée." << endl;
         return;
     }
 
-    std::vector<Item> items;
-    std::vector<int> listCapacite;
-    std::vector<uint> values;
-    std::vector<uint> weights;
+    vector<string> listFileName;
+    vector<int> listCapacite;
+    vector<uint> values;
+    vector<uint> weights;
+    vector<uint> optimums;
 
+    string filename;
     int n = 0;
     int wmax = 0;
-    bool headerRead = false;
+    int z = 0;
+    bool headerRead = true;
 
-    Item fin={-1,-1};
-    
-    //on lit ligne par ligne
-    while (std::getline(inputFile, line)) {
-        
-        if (line == "-----") {
-            items.push_back(fin);
-            headerRead=true;
-            continue;
-        }
+    while (getline(inputFile, line)) {
+        istringstream ss(line);
+        string temp;
 
-        std::istringstream ss(line);
+        if (headerRead) {
 
-        if (headerRead) { // lit les valeurs des en-têtes
-            
             // Lire les valeurs des en-têtes
-            std::getline(inputFile, line);
-            std::string temp;
-            std::getline(inputFile, line); // Lire la ligne "n x"
+            getline(inputFile, line);
+            ss.str(line);
+            ss >> filename;
+            ss.clear();
+            listFileName.push_back(filename);
+
+            getline(inputFile, line); // Lire la ligne "n x"
             ss.str(line);
             ss.clear();
             ss >> temp >> n;
 
-            std::getline(inputFile, line); // Lire la ligne "c wmax"
+            getline(inputFile, line); // Lire la ligne "c wmax"
             ss.str(line);
             ss.clear();
             ss >> temp >> wmax;
             listCapacite.push_back(wmax);
 
-            std::getline(inputFile, line); // Lire la ligne "z d" (ignorée)
-            std::getline(inputFile, line);// Lit la ligne "time 0.00" (ignorée)
-            headerRead=false;
-        } 
-            else {
+            getline(inputFile, line); // Lire la ligne "z d" (ignorée)
+            ss.str(line);
+            ss.clear();
+            ss >> temp >> z;
+            optimums.push_back(z);
 
+            getline(inputFile, line); // Lit la ligne "time 0.00" (ignorée)
+            headerRead = false;
+
+        } else {
             Item item;
             char comma;
-            int ki, bi; 
+            int ki, bi;
 
             if (ss >> ki >> comma >> item.value >> comma >> item.weight >> comma >> bi) {
-                //items.push_back(item);
                 weights.push_back(item.weight);
                 values.push_back(item.value);
+            }
 
+            if (line == "-----") {
+                values.push_back(-1);
+                weights.push_back(-1);
+                headerRead = true;
             }
         }
     }
 
     inputFile.close();
 
-    //transcription dans le nouveau format
-    outputFile << n << " " << wmax << "\n";
+    // transcription dans le nouveau format
+    size_t instanceStart = 0;
+    for (size_t j = 0; j < listFileName.size(); ++j) {
+       
+        string fileName =fs::path(listFileName[j]).replace_extension(".in").string();
+        fs::path directoryPath = "../../data/allIns";
+        fs::path filePath = directoryPath / fileName;
 
-    vector<int>::iterator it=listCapacite.begin();
-
-    for (const auto &item : items)
-    {
-        if (item.value == -1 && item.weight == -1)
+        if (!fs::exists(directoryPath))
         {
-            outputFile << "\n";
-            if (it != listCapacite.end())
-            {
-                outputFile << n << " " << (*it)<<"\n";
-                it++;
-            }
+            if (!fs::create_directories(directoryPath))
+                cerr << "impossible de créer le nouveau dossier "<<directoryPath <<endl;
         }
-        else
-            outputFile << item.value << " " << item.weight << "\n";
+
+        ofstream outputFile(filePath.string());
+
+        if (!outputFile) {
+            cerr << "Erreur: Impossible de créer le nouveau fichier .in pour l'instance : " << listFileName[j] << endl;
+            return;
+        }
+
+        // écriture dans le fichier de sorti // génération du .in
+        outputFile << n << endl;
+
+        // écriture des valeurs
+        for (size_t i = instanceStart; i < values.size() && values[i] != -1; ++i) {
+            outputFile << values[i] << " ";
+        }
+        outputFile << endl;
+
+        // écriture des poids
+        for (size_t i = instanceStart; i < weights.size() && weights[i] != -1; ++i) {
+            outputFile << weights[i] << " ";
+        }
+        outputFile << endl;
+
+        outputFile << listCapacite[j] << endl;
+        outputFile.close();
+
+        string nomfichier = fs::path(listFileName[j]).replace_extension(".sol").string();
+        fs::path repertoryPath = "../../data/allOpt";
+        fs::path chemin = repertoryPath / nomfichier;
+
+        if (!fs::exists(repertoryPath))
+        {
+            if (!fs::create_directories(repertoryPath))
+                cerr << "impossible de créer le nouveau dossier" << repertoryPath <<endl;
+        }
+        ofstream outputSol(chemin);
+
+        if (!outputSol) {
+            cerr << "Erreur : impossible de créer le fichier .sol pour l'instance " << listFileName[j] << endl;
+            return;
+        }
+
+        // génération .sol
+        outputSol << optimums[j];
+        outputSol.close();
+
+        //position de la prochaine instance
+        instanceStart += (find(weights.begin() + instanceStart, weights.end(), -1) - weights.begin() - instanceStart + 1);
+    }
+}
+
+
+/**
+ * fonction qui vérifie la cohérence en temps d'exécution suivant N*M
+ * on suppose qu'il ne prend que des fichier sans l'extension .in
+*/
+void validationCoherence(string const & inputfile, chrono::duration<double> tmps){
+    
+    ifstream inputFile(inputfile);
+
+    if(!inputFile.is_open()){
+        cerr << " Impossible d'ouvrir le fichier \"" << inputfile << "\" " << endl;
+        return ;
     }
 
-    outputFile.close();
+    fs::path inputPath(inputfile);
 
-    std::cout << "Conversion terminée" << std::endl;
+    if (inputPath.extension() == ".in")
+    {
+        string line;
+        int lineNumber = 0;
+        string n;
+        string value;
+        
+        ofstream output("validation.csv", ios::app);
 
+        while (getline(inputFile, line))
+        {    
+
+            ++lineNumber;
+            if (lineNumber == 1) // nb item
+            { 
+                n = line;
+            }
+            else if (lineNumber == 4) // capacité du sac à dos
+            {
+                value = line;
+                break;
+            }
+        }
+        inputFile.close();
+        auto ratio=(tmps / (stoi(n) * stoi(value)));
+
+        output << inputfile << ";" <<  ratio.count() << endl;
+
+        output.close();
+    }
 }
+

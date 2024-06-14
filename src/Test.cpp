@@ -1,16 +1,14 @@
-#include "KpSolver.hpp"
 #include <chrono>
 #include "KpSolverDP.hpp"
-#include "parser.cpp"
-#include <string.h>
+#include "selectionFile.hpp"
 
-void testSolver(std::string const &instanceFile, MatDPType matrixType, KpSolverDP * kp1, KpSolverDP * kp2){
 
-    string fileName= "result.csv";
 
-    string fichierSortie = (fs::path("../output") / fileName).string();
+void testSolver(string const &instanceFile, MatDPType matrixType, KpSolverDP * kp1, KpSolverDP * kp2,string fileName){
 
-    ofstream outputFile(fichierSortie,  std::ios::app);
+    string fichierSortie = (fs::path("../results") / fileName).string();
+
+    ofstream outputFile(fichierSortie,  ios::app);
     if (!outputFile) {
         cout << "Erreur: Impossible de créer le fichier CSV pour l'instance : "<<instanceFile << endl;
         return;
@@ -49,123 +47,161 @@ void testSolver(std::string const &instanceFile, MatDPType matrixType, KpSolverD
 
 }
 
-void testAllMatrix(const string& instanceFile,  KpSolverDP * kp) {
+template <typename KpSolverDP>
 
-    string fileName= fs::path(instanceFile).filename().replace_extension(".csv").string();
+void generateCSV(const string& instanceFile, int version) {
+    int i = version;
+    double tempsMin = numeric_limits<double>::max();
+    vector<chrono::duration<double>> temps;
 
-    string fichierSortie = (fs::path("../output") / fileName).string();
+    string fileName = "testV" + to_string(i) + ".csv";
+    string fichierSortie = (fs::path("../results") / fileName).string();
 
-    ofstream outputFile(fichierSortie);
+    ofstream outputFile(fichierSortie, ios::app);
     if (!outputFile) {
-        cout << "Erreur: Impossible de créer le fichier CSV pour l'instance : "<<instanceFile << endl;
+        cerr << "Erreur: Impossible de créer le fichier CSV pour l'instance : " << instanceFile << endl;
         return;
     }
 
-    bool isSame=true;
-    int value=0;
-    int aux=0;
-    double tempsMin= numeric_limits<double>::max();
-    vector<chrono::duration<double>> temps;
+    outputFile << fs::path(instanceFile).filename() << ";";
 
+    MatDPType matrixType = MatDPType::MatDPvectVect;
+    auto start = chrono::steady_clock::now();
+    auto end = chrono::steady_clock::now();
+    chrono::duration<double> elapsed_seconds = end - start;
 
-    outputFile << ";" << "MatDPvectVect" << ";" << "MatDPvect" << ";"<< "MatDPtabTab" << ";" << "MatDPtab" << ";" << "coherence" << ";" << "tempsMin: " <<endl;
-    outputFile << fs::path(instanceFile).filename() <<";";
-
-    MatDPType matrixType = MatDPType::MatDPtab;
-
-    cout<<"programmation dynamique "<<endl;
+    auto startCreation = chrono::steady_clock::now();
+    auto* kp = new KpSolverDP(instanceFile, matrixType);
+    auto endCreation = chrono::steady_clock::now();
+    auto creation_time = endCreation - startCreation;
 
     do {
-        cout<<"############################################################"<<endl;
-        cout<<"matrix: "<<tostring(matrixType)<<endl;
-        cout<<"############################################################"<<endl;
-        
-        auto start = chrono::steady_clock::now();
-        auto end = chrono::steady_clock::now();
-        chrono::duration<double> elapsed_seconds = end - start;
+        cout << "############################################################" << endl;
+        cout << "matrix: " << tostring(matrixType) << endl;
+        cout << "############################################################" << endl;
 
         start = chrono::steady_clock::now();
         kp->solve();
-        value=kp->getUpperBound();
-
-        if(aux!=0 && aux!=value) 
-            isSame=false ; 
-
-        aux=value;
-
         end = chrono::steady_clock::now();
-        elapsed_seconds = end - start;
+        elapsed_seconds = (end - start)+creation_time;
+
         cout << "elapsed time: " << elapsed_seconds.count() << "s" << endl;
-        
         temps.push_back(elapsed_seconds);
 
-        if(elapsed_seconds.count() < tempsMin) 
-            tempsMin=elapsed_seconds.count();
+        if (elapsed_seconds.count() < tempsMin)
+            tempsMin = elapsed_seconds.count();
 
         outputFile << elapsed_seconds.count() << ";";
 
         ++matrixType;
-        
-        cout<<endl;
+
+        cout << endl;
+
     } while (matrixType != MatDPType::MatDPvectVect);
 
-    outputFile << isSame << ";" << tempsMin<<";" ;
-
-    //calcule de l'écart
-    for(auto const& t: temps){
-        double r= ((t.count() /tempsMin)*100);
-        outputFile<<r<<";";
+    // Calcul des écarts
+    for (const auto& t : temps) {
+        double r = ((t.count() / tempsMin) * 100);
+        outputFile << r << ";";
     }
 
-    outputFile<<endl;
-
+    outputFile << endl;
     outputFile.close();
+    delete kp;
+}
+
+void testAllMatrix(const string& instanceFile) {
+    generateCSV<KpSolverDPv0>(instanceFile, 0);
+    generateCSV<KpSolverDPv1>(instanceFile, 1);
+    generateCSV<KpSolverDPv2>(instanceFile, 2);
 }
 
 
-
-int main(int argc, char **argv)
+int main()
 {
-    string instanceFile;
+    string textfile = "../cheminInstance.txt";
+    string caracteristics="../results/caracteristics.csv";
 
-    vector<string> liste_low_dimentional = {"f1_l-d_kp_10_269", "f2_l-d_kp_20_878", "f3_l-d_kp_4_20", "f4_l-d_kp_4_11",
-                                                  "f5_l-d_kp_15_375", "f6_l-d_kp_10_60", "f8_l-d_kp_23_10000", "f9_l-d_kp_5_80", "f10_l-d_kp_20_879"};
+    //parseInstances(textfile);
 
-    vector<string> liste_large_scale = {"knapPI_1_100_1000_1", "knapPI_1_500_1000_1", "knapPI_1_1000_1000_1", "knapPI_1_2000_1000_1","knapPI_1_5000_1000_1", "knapPI_1_10000_1000_1",
-                                             "knapPI_2_100_1000_1", "knapPI_2_200_1000_1", "knapPI_2_500_1000_1", "knapPI_2_1000_1000_1", "knapPI_2_2000_1000_1", "knapPI_2_5000_1000_1", 
-                                             "knapPI_2_10000_1000_1", "knapPI_3_100_1000_1","knapPI_3_200_1000_1", "knapPI_3_500_1000_1", "knapPI_3_1000_1000_1", "knapPI_3_2000_1000_1",
-                                              "knapPI_3_5000_1000_1", "knapPI_3_10000_1000_1"};
+    int minNM=0;
+    int maxNM=1000000;
 
-    bool verboseMode = true;
-    if (argc < 3)
-        verboseMode = false;
+    //savecaracteristique("../../data/allIns", caracteristics);
+    vector<caracteristiqueInstance> allInstances=loadInstancesFromCSV(caracteristics);
+    vector<caracteristiqueInstance>  kept=filterInstance(allInstances, minNM, maxNM); 
+/*
+    vector<string> insOpt = recupererTousFichier("../../data/allOpt"); //cdossier contenant tous les fichiers .sol
 
-    if (argc < 2)
+    bool valide=true;
+    for(const auto & instance : kept){
+       
+        fs::path instancePath = instance.filename;
+        string instanceStem = instancePath.stem().string();
+        string solFileName = instanceStem + ".sol";
+    
+        // Chercher le fichier correspondant dans insOpt
+        auto it = find_if(insOpt.begin(), insOpt.end(), [&solFileName](const string &filePath) {
+            return fs::path(filePath).filename() == solFileName;
+        });
+
+        if (it != insOpt.end()) {
+
+            int opt=getOptimum(*it);
+            estValide(instance.filename, opt);
+
+        } else {
+            estValide(instance.filename, instance.opt);
+        }        
+    }*/
+
+    // génération des fichiers .csv contenant les temps d'executions des différents matrix/solver
+    for (const auto &instance : kept)
     {
-        // cerr << "Usage: knapsack inputFile [heuristicMode] [verbosity]" << endl;
-        // cerr << "Usage: a heuristic/exactMode implies comparisons of exact methods (for small instances), whereas no parameter implies heuristic search" << endl;
-        // cerr << "A third parameter enable verbosity, useful for debugging" << endl;
-        // return 1;
-
-        //test("../nouveauInstance/hardinstances_pisinger/knapPI_11_20_1000.csv");
-        //convertFile("../nouveauInstance/hardinstances_pisinger/knapPI_11_20_1000.in");
-        
-        string chemin="../instances2/large_scale/";
-
-        instanceFile=chemin+"knapPI_2_10000_1000_1.in";
-
-        MatDPType matrixType = MatDPType::MatDPtab;
-        KpSolverDP *kpv0= new KpSolverDPv2(instanceFile, matrixType);
-        KpSolverDP *kpv2= new KpSolverDPv2(instanceFile, matrixType);
-
-        testSolver(instanceFile,matrixType, kpv0,kpv2 );
-
-        delete kpv0;
-        delete kpv2;
+        testAllMatrix(instance.filename);
     }
-    else
-        instanceFile = argv[1];
 
+    vector<caracteristiqueInstance>::iterator it= kept.begin();
+    MatDPType matrixType = MatDPType::MatDPtab;
+
+    // Test comparaison matrices 2 à 2
+
+    KpSolverDPv0 * kp0;
+    KpSolverDPv1 * kp1;
+
+    while (it != kept.end())
+    {
+        kp0 = new KpSolverDPv0((*it).filename, matrixType);
+        kp1 = new KpSolverDPv1((*it).filename, matrixType);
+        testSolver((*it).filename,matrixType, kp0,kp1, "v0V1.csv");
+        it++;
+    }
+    
+    delete kp0;
+
+    KpSolverDPv1bis * kpbis;
+    while (it != kept.end())
+    {
+        kp1 = new KpSolverDPv1((*it).filename, matrixType);
+        kpbis = new KpSolverDPv1bis((*it).filename, matrixType);
+        testSolver((*it).filename,matrixType, kp1,kpbis, "v1V1bis.csv");
+        it++;
+    }
+
+    delete kpbis;
+    
+    KpSolverDPv2 * kp2;
+    while (it != kept.end())
+    {
+        kp1 = new KpSolverDPv1((*it).filename, matrixType);
+        kp2 = new KpSolverDPv2((*it).filename, matrixType);
+        testSolver((*it).filename,matrixType, kp1,kp2, "v1V2.csv");
+        tempsCalcules(kp2); //enregistrements des temps de calcules pour V2
+        it++;
+    }
+
+    delete kp1;
+    delete kp2;
 
     return 0;
 }

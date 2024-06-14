@@ -1,7 +1,5 @@
-#include "KpSolverDP.hpp"
-
 #include <omp.h>
-#include "KpSolver.hpp"
+#include "KpSolverDP.hpp"
 
 
 MatDPType& operator++(MatDPType& type) {

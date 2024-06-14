@@ -62,6 +62,7 @@
         "__nullptr": "cpp",
         "__split_buffer": "cpp",
         "set": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "future": "cpp"
     }
 }
